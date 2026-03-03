@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" type="module"></script>
+
+</head>
+<body>
+    <div class="2xl:container mx-auto">
+        <div class="w-[90%] mx-auto flex justify-center items-center h-screen" >
+            <div class="max-w-[500px] w-full border p-6">
+                <h1 class=" text-[30px] text-center font-bold">Login</h1>
+                <form id="form"class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-4">
+                        <label for="email" class="text-xl p-2 ">Email</label>
+                        <input type="text" id="email" required name="email" placeholder="enter email.."
+                        class="outline-none border rounded-lg py-3 pl-2 w-full">
+                        <p id="emailError" class="text-red-600 text-sm"></p>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <label for="password" class="text-xl">Password</label>
+                        <div class="relative w-full">
+                           <input type="password" id="password" required name="password" placeholder="enter password.."
+                           class="outline-none border rounded-lg py-3 pl-2 w-full">
+                           <!-- eye icon button -->
+                           <button type="button" id="togglePassword"
+                           class="absolute inset-y-0 right-2 flex items-center text-sm text-gray-500">Show</button>
+                        </div>
+                     <p id="passError"class="text-red-600 text-sm"></p>
+                    </div> 
+
+                    <div class="flex flex-col gap-4">
+                        <button class="bg-green-500 text-white px-2 py-3 w-full rounded-lg">Login..</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- <script>
+    var email=document.getElementById("email");
+    var password=document.getElementById("password");
+    var form=document.getElementById("form");
+    var emailError = document.getElementById("emailError");
+    var passError = document.getElementById("passError");
+
+    form.addEventListener( "submit",(event)=>{
+        event.preventDefault();
+        formValidate(email.value, password.value);  
+    });
+
+    email.addEventListener("input",(event)=>{
+        const emailRegex = /^\S+@\S+\.\S+$/;
+
+        if(event.target.value.match(emailRegex)) {
+            emailError.textContent = "";
+        } else {
+            emailError.textContent = "invalid email format";
+        }
+    });
+
+    password.addEventListener("input",(event)=>{
+        const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
+        if(event.target.value.match(passwordRegex)) {
+            passError.textContent="";
+        } else {
+            passError.textContent="Minimum 8 characters in length. At least one uppercase and one lowercase. At least one digit and one special character..";
+        }
+    })
+
+    const formValidate = (email,password)=>{
+         const emailRegex = /^\S+@\S+\.\S+$/;
+         const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+//regex checking for email
+        if (email.match(emailRegex)){
+            console.log("valid email..",email);
+            emailError.textContent = "";
+            console.dir(emailError);
+        } else{
+            console.log("invald email..", email);
+            emailError.textContent = "invalid email";
+        }
+//regex checking for password
+        if(password.match(passwordRegex)) {
+            console.log("valid password.", password);
+            passError.textContent = "";
+        } else{
+            console.log("invalid password..", password);
+            passError.textContent =  "invalid password..";
+        }
+        alert("Login successful");
+    }
+</script> -->
